@@ -80,6 +80,6 @@ http://localhost/Projekt_data/index.php/[tabellnamn]/[id] <br />
 Du behöver skicka en id och bodyuppgifter för att resultatet ska lyckas.<br />
 **Exempel för att radera data:**<br />
 http://localhost/Projekt_data/index.php/[tabellnamn]/[id] <br />
-Här skriver tabellnamnet som berörs och id som ska raderas från databasen. <br />
+Här skriver du tabellnamnet som berörs och id som ska raderas från databasen. <br />
 
 
