@@ -19,7 +19,7 @@ contact_cv skapas för att lägga till kontaktsuppgifter i databasen.
 users_cv skapas för att kontrollera inloggade användare i CV.
 Du behöver skapa dessa kolumner i dessa tabeller :<br />
 **cv_pres**<br />
- `id` int(11) NOT NULL, <br />
+   `id` int(11) NOT NULL, <br />
   `fullname` text NOT NULL, <br />
   `epost` text NOT NULL, <br />
   `mobnr` text NOT NULL, <br />
@@ -31,12 +31,12 @@ Du behöver skapa dessa kolumner i dessa tabeller :<br />
    `id` int(11) NOT NULL,<br />
   `studiesschool` text NOT NULL,<br />
   `course_name` text NOT NULL,<br />
-  `Starttime_studies` text NOT NULL,<br /><br />
+  `Starttime_studies` text NOT NULL,<br />
   `Stoptime_studies` text NOT NULL,<br />
   `status` int(11) NOT NULL<br />
   
 **cv_work**<br />
-   `id` int(11) NOT NULL,<br /><br />
+   `id` int(11) NOT NULL,<br />
   `workplace` text NOT NULL,<br />
   `work_title` text NOT NULL,<br />
   `Starttime_work` text NOT NULL,<br />
