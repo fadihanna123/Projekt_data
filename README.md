@@ -70,18 +70,16 @@ $this->db = mysqli_connect('a.server.com', 'mittnamn', 'psw', 'databas') or die(
 PHP<br />
 
 **Exempel för att visa data:**<br />
-http://localhost/Moment_5.1/index.php/[tabellnamn]/[] <br />
-Den visar data beror på tabellnamn och id som skickas från adress från databasen annars visa alla data<br />
+http://localhost/Projekt_data/index.php/[tabellnamn]/[id] <br />
+Den visar data beror på tabellnamn och id som skickas från adress från databasen. Om id saknas visas då alla data<br />
 **Exempel för att lägga till data:**<br />
-http://localhost/Moment_5.1/index.php/ <br />
-observera att du måste lägga i body vissa data för att de ska läggas till. <br />
+http://localhost/Projekt_data/index.php/[tabellnamn]/ <br />
+Observera att du måste lägga i body vissa data för att de ska läggas till. <br />
 **Exempel för att uppdatera data:**<br />
-http://localhost/Moment_5.1/index.php/<br />
-observera att du måste lägga i body de data som ska uppdateras.<br />
+http://localhost/Projekt_data/index.php/[tabellnamn]/[id] <br />
+Du behöver skicka en id och bodyuppgifter för att resultatet ska lyckas.<br />
 **Exempel för att radera data:**<br />
-http://localhost/Moment_5.1/index.php/<br />
-Denna metod raderar id 1.<br />
-I courses/[id]<br />
-kan du lägga vilken id som ska raderas. <br />
+http://localhost/Projekt_data/index.php/[tabellnamn]/[id] <br />
+Här skriver tabellnamnet som berörs och id som ska raderas från databasen. <br />
 
 
