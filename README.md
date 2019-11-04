@@ -10,13 +10,13 @@ includes/ <br />
 index.php innehåller hela koden beror på metoden som skickas.<br />
 
 **Installation:**<br />
-Du behöver skapa dessa tabeller: cv_pres, cv_studie, cv_work, cv_webpages, contact_cv och users_cv.
-cv_pres skapas för att visa personliga uppgifter.
-cv_studie skapas för att visa studieuppgifter.
-cv_work skapas för att visa erfarenhetsuppgifter.
-cv_webpages skapas för att visa webbssidorsuppgifter.
-contact_cv skapas för att lägga till kontaktsuppgifter i databasen.
-users_cv skapas för att kontrollera inloggade användare i CV.
+Du behöver skapa dessa tabeller: cv_pres, cv_studie, cv_work, cv_webpages, contact_cv och users_cv.<br />
+cv_pres skapas för att visa personliga uppgifter.<br />
+cv_studie skapas för att visa studieuppgifter.<br />
+cv_work skapas för att visa erfarenhetsuppgifter.<br />
+cv_webpages skapas för att visa webbssidorsuppgifter.<br />
+contact_cv skapas för att lägga till kontaktsuppgifter i databasen.<br />
+users_cv skapas för att kontrollera inloggade användare i CV.<br />
 Du behöver skapa dessa kolumner i dessa tabeller :<br />
 **cv_pres**<br />
    `id` int(11) NOT NULL, <br />
