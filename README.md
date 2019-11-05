@@ -33,7 +33,6 @@ Du behöver skapa dessa kolumner i dessa tabeller :<br />
   `course_name` text NOT NULL,<br />
   `Starttime_studies` text NOT NULL,<br />
   `Stoptime_studies` text NOT NULL,<br />
-  `status` int(11) NOT NULL<br />
   
 **cv_work**<br />
    `id` int(11) NOT NULL,<br />
