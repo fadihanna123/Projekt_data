@@ -1,4 +1,5 @@
 <?php
+
 class datasource
 {
 	protected $db;
