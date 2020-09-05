@@ -10,7 +10,7 @@
 		$getrequest = explode('/', trim($_SERVER['PATH_INFO'], '/'));
 		$input = json_decode(file_get_contents('php://input'), true);
 		// Kontrollera om sidan har i adressen en av dessa ord: cv_pres, cv_work, cv_studie, cv_webpages annars visa felmeddelande och stoppa förfrågan
-		if($getrequest[0] != "cv_pres" && $getrequest[0] != "cv_work" && $getrequest[0] != "cv_studie" && $getrequest[0] != "cv_webpages")
+		if ($getrequest[0] != "cv_pres" && $getrequest[0] != "cv_work" && $getrequest[0] != "cv_studie" && $getrequest[0] != "cv_webpages")
 		{ 
 			http_response_code(404);
 			exit();
@@ -18,7 +18,7 @@
 		// Visa sidan med inställningar som json format med utf-8 
 		header("Content-Type: application/json; charset=UTF-8");
 		// Inkludera alla åtgärder beror på den skickade HTTP-metoden
-		switch($method)
+		switch ($method)
 		{
 			// Anropa showData funktionen och visa data beror på de skickade data
 			case "GET":
@@ -42,19 +42,19 @@
 	$con = mysqli_connect('localhost', 'root', '', 'test');
 	mysqli_set_charset($con, "utf8");
 
-	if($method != "GET")
+	if ($method != "GET")
 	{ 
 		$sql = "SELECT * FROM $getrequest[0];";
 	}
-	if($method = "GET" && empty($getrequest[1]))
+	if ($method = "GET" && empty($getrequest[1]))
 	{ 
 		$sql = "SELECT * FROM $getrequest[0];";
 	}
-	if($method = "DELETE" && !empty($getrequest[1]))
+	if ($method = "DELETE" && !empty($getrequest[1]))
 	{ 
 		$sql = "SELECT * FROM $getrequest[0]";
 	}
-	if($method = "GET" && !empty($getrequest[1]))
+	if ($method = "GET" && !empty($getrequest[1]))
 	{ 
 		$sql = "SELECT * FROM $getrequest[0] WHERE id=" . "$getrequest[1]" . ";";
 	}
@@ -62,9 +62,9 @@
 	$result = mysqli_query($con, $sql);
 
 		// Lägger till alla data i en array.
-    	while($row = mysqli_fetch_assoc($result))
+    	while ($row = mysqli_fetch_assoc($result))
     	{
-    		if($getrequest[0] == "cv_pres")
+    		if ($getrequest[0] == "cv_pres")
     		{
     			$row_arr['id'] = $row['id'];
 				$row_arr['fullname'] = $row['fullname'];
@@ -74,7 +74,7 @@
 				$row_arr['lang'] = $row['lang'];
 				$row_arr['title'] = $row['title'];
 			}
-			if($getrequest[0] == "cv_studie")
+			if ($getrequest[0] == "cv_studie")
 			{
 				$row_arr['id'] = $row['id'];
 				$row_arr['studiesschool'] = $row['studiesschool'];
@@ -82,7 +82,7 @@
 				$row_arr['Starttime_studies'] = $row['Starttime_studies'];
 				$row_arr['Stoptime_studies'] = $row['Stoptime_studies'];
 			}
-		if($getrequest[0] == "cv_work")
+		if ($getrequest[0] == "cv_work")
 		{
 				$row_arr['id'] = $row['id'];
 				$row_arr['work_title'] = $row['work_title'];
@@ -90,7 +90,7 @@
 				$row_arr['Starttime_work'] = $row['Starttime_work'];
 				$row_arr['Stoptime_work'] = $row['Stoptime_work'];
 		}
-			if($getrequest[0] == "cv_webpages")
+			if ($getrequest[0] == "cv_webpages")
 			{
 				$row_arr['id'] = $row['id'];
 				$row_arr['webpage_title'] = $row['webpage_title'];
