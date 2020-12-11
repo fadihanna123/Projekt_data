@@ -148,5 +148,3 @@ while ($row = mysqli_fetch_assoc($result)) {
 }
 // Visa dessa data i json format.
 echo json_encode($arr);
-
-?>
