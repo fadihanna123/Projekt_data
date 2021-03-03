@@ -1,7 +1,8 @@
 <?php
 
 class datasource
-{protected $_db;
+{
+    protected $_db;
     // Ansluta till databasen.
     public function __construct()
     {
