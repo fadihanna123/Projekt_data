@@ -4,11 +4,11 @@ header("Access-Control-Allow-Origin: *");
 // Inkludera config filen.
 require "includes/config.php";
 // Anropa datasource klassen
-$getclass = new datasource();
+$getclass = (object) new datasource();
 // Hämta HTTP-metoder, länk och svar från länken
-$method = $_SERVER['REQUEST_METHOD'];
-$getrequest = explode('/', trim($_SERVER['PATH_INFO'], '/'));
-$input = json_decode(file_get_contents('php://input'), true);
+$method = (array)$_SERVER['REQUEST_METHOD'];
+$getrequest = (array)explode('/', trim($_SERVER['PATH_INFO'], '/'));
+$input = (object)json_decode(file_get_contents('php://input'), true);
 // Kontrollera om sidan har i adressen en av dessa ord: cv_pres, cv_work, cv_studie, cv_webpages annars visa felmeddelande och stoppa förfrågan
 if (
     $getrequest[0] != "cv_pres" &&
@@ -94,55 +94,55 @@ switch ($method) {
         break;
 }
 // Skapa en array och anslut till databasen.
-$arr = [];
-$con = mysqli_connect('localhost', 'root', '', 'test');
+$arr = (array) [];
+$con = (object)mysqli_connect('localhost', 'root', '', 'test');
 mysqli_set_charset($con, "utf8");
 
 if ($method != "GET") {
-    $sql = "SELECT * FROM $getrequest[0];";
+    $sql = (string) "SELECT * FROM $getrequest[0];";
 }
 if ($method = "GET" && empty($getrequest[1])) {
-    $sql = "SELECT * FROM $getrequest[0];";
+    $sql = (string) "SELECT * FROM $getrequest[0];";
 }
 if ($method = "DELETE" && !empty($getrequest[1])) {
-    $sql = "SELECT * FROM $getrequest[0]";
+    $sql = (string) "SELECT * FROM $getrequest[0]";
 }
 if ($method = "GET" && !empty($getrequest[1])) {
-    $sql = "SELECT * FROM $getrequest[0] WHERE id=" . "$getrequest[1]" . ";";
+    $sql = (string) "SELECT * FROM $getrequest[0] WHERE id=" . "$getrequest[1]" . ";";
 }
 // Visa alla data beror på den skicka sql uppmaning.
-$result = mysqli_query($con, $sql);
+$result = (object)mysqli_query($con, $sql);
 
 // Lägger till alla data i en array.
-while ($row = mysqli_fetch_assoc($result)) {
+while ($row = (array)mysqli_fetch_assoc($result)) {
     if ($getrequest[0] == "cv_pres") {
-        $row_arr['id'] = $row['id'];
-        $row_arr['fullname'] = $row['fullname'];
-        $row_arr['epost'] = $row['epost'];
-        $row_arr['mobnr'] = $row['mobnr'];
-        $row_arr['age'] = $row['age'];
-        $row_arr['lang'] = $row['lang'];
-        $row_arr['title'] = $row['title'];
+        $row_arr['id'] = (int)$row['id'];
+        $row_arr['fullname'] = (string)$row['fullname'];
+        $row_arr['epost'] = (string)$row['epost'];
+        $row_arr['mobnr'] = (string)$row['mobnr'];
+        $row_arr['age'] = (int)$row['age'];
+        $row_arr['lang'] = (string)$row['lang'];
+        $row_arr['title'] = (string)$row['title'];
     }
     if ($getrequest[0] == "cv_studie") {
-        $row_arr['id'] = $row['id'];
-        $row_arr['studiesschool'] = $row['studiesschool'];
-        $row_arr['course_name'] = $row['course_name'];
-        $row_arr['Starttime_studies'] = $row['Starttime_studies'];
-        $row_arr['Stoptime_studies'] = $row['Stoptime_studies'];
+        $row_arr['id'] = (int)$row['id'];
+        $row_arr['studiesschool'] = (string)$row['studiesschool'];
+        $row_arr['course_name'] = (string)$row['course_name'];
+        $row_arr['Starttime_studies'] = (string)$row['Starttime_studies'];
+        $row_arr['Stoptime_studies'] = (string)$row['Stoptime_studies'];
     }
     if ($getrequest[0] == "cv_work") {
-        $row_arr['id'] = $row['id'];
-        $row_arr['work_title'] = $row['work_title'];
-        $row_arr['workplace'] = $row['workplace'];
-        $row_arr['Starttime_work'] = $row['Starttime_work'];
-        $row_arr['Stoptime_work'] = $row['Stoptime_work'];
+        $row_arr['id'] = (int)$row['id'];
+        $row_arr['work_title'] = (string)$row['work_title'];
+        $row_arr['workplace'] = (string)$row['workplace'];
+        $row_arr['Starttime_work'] = (string)$row['Starttime_work'];
+        $row_arr['Stoptime_work'] = (string)$row['Stoptime_work'];
     }
     if ($getrequest[0] == "cv_webpages") {
-        $row_arr['id'] = $row['id'];
-        $row_arr['webpage_title'] = $row['webpage_title'];
-        $row_arr['webpage_url'] = $row['webpage_url'];
-        $row_arr['webpage_des'] = $row['webpage_des'];
+        $row_arr['id'] = (int)$row['id'];
+        $row_arr['webpage_title'] = (string)$row['webpage_title'];
+        $row_arr['webpage_url'] = (string)$row['webpage_url'];
+        $row_arr['webpage_des'] = (string)$row['webpage_des'];
     }
     array_push($arr, $row_arr);
 }
